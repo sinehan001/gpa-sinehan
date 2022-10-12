@@ -291,7 +291,15 @@ app.get("/authverify",function(req,res){
                 console.log(err);
             }
             else{
-                User.updateOne({'username': uname},{ $set: { verify: true } });
+                User.updateOne({'username': uname},{ $set: { verify: true } },,
+    (err, doc) => {
+      if (!err) {
+        res.status(200).send({ errorStatus: false, returnData: doc }
+      } else {
+        console.log(err);
+        res.status(200).send({ errorStatus: true, errorMsg: 'Db Error',   errorCode: 405 })
+      }
+    });
                 res.redirect("/authsuccess");
             }
         });
