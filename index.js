@@ -291,14 +291,8 @@ app.get("/authverify",function(req,res){
                 console.log(err);
             }
             else{
-                User.updateOne({'username': uname},{ $set: { verify: true } }, function(err, res){
-                    if(err) {
-                        console.log(err);
-                    }
-                    else {
-                        res.redirect("/authsuccess");
-                    }
-                });
+                User.updateOne({'username': uname},{ $set: { verify: true } });
+                res.redirect("/authsuccess");
             }
         });
     }
