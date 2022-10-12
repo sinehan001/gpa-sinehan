@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Images</title>
+    
+    <style>
+        body {
+            background-color: #363b41;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3 {
+            text-align: center;
+            color: #fff;
+        }
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        input[type="checkbox"][id^="myCheckbox"] {
+            display: none;
+        }
+
+        label {
+            border: 1px solid #fff;
+            padding: 10px;
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        label:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            border: 1px solid grey;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 28px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+        }
+
+        label img {
+            height: 100px;
+            width: 100px;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+        }
+
+        :checked + label {
+            background-color: azure;
+        }
+
+        :checked + label:before {
+            content: "✔";
+            background-color: #007bff;
+            transform: scale(1);
+        }
+
+        :checked + label img {
+            transform: scale(0.9);
+            z-index: -1;
+        }
+        .form__field {
+            text-align: center;
+}
+input[type="submit"] {
+    background-color: #ea4c88;
+    color: #eee;
+    font-weight: 900;
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: none;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:disabled {
+    background-color: #606468;
+    cursor: default;
+}
+    </style>
+</head>
+<body>
+    <h3>Select 3 images</h3>
+    <form action="/select" method="POST">
+    <ul>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox1" name="c1" value="1.jpeg" />
+            <label for="myCheckbox1"><img src="images/1.jpeg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox2" name="c2" value="2.jpeg" />
+            <label for="myCheckbox2"><img src="images/2.jpeg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox3" name="c3" value="3.jpeg" />
+            <label for="myCheckbox3"><img src="images/3.jpeg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox4" name="c4" value="4.jpeg" />
+            <label for="myCheckbox4"><img src="images/4.jpeg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox5" name="c5" value="5.jpeg" />
+            <label for="myCheckbox5"><img src="images/5.jpeg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox6" name="c6" value="6.jpg" />
+            <label for="myCheckbox6"><img src="images/6.jpg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox7" name="c7" value="7.jpg" />
+            <label for="myCheckbox7"><img src="images/7.jpg" /></label>
+        </li>
+        <li>
+            <input type="checkbox" class="checkbox" id="myCheckbox8" name="c8" value="8.jpeg" />
+            <label for="myCheckbox8"><img src="images/8.jpeg" /></label>
+        </li>
+    </ul>
+    <div class="form__field">
+        <input type="submit" id="submit" value="SUBMIT" disabled />
+    </div>
+    </form>
+</body>
+<script>
+var checks = document.querySelectorAll(".checkbox");
+var max = 3;
+for (var i = 0; i < checks.length; i++)
+    checks[i].onclick = selectiveCheck;
+function selectiveCheck (event) {
+    var checkedChecks = document.querySelectorAll(".checkbox:checked");
+    if (checkedChecks.length >= max + 1)
+        return false;
+    if (checkedChecks.length == max)
+        document.getElementById("submit").disabled=false;
+}
+</script>
+</html>

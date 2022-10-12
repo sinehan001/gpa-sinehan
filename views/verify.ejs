@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto:300i,400,400i,500,700,900");
+        body {
+            background-color: #2c3338;
+        }
+.multi_step_form {
+  background: #3b4148;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  top: 20px;
+  padding: 25px 0px;
+  border-radius: 20px;
+}
+.multi_step_form #msform {
+  text-align: center;
+  position: relative;
+  padding-top: 20px;
+  min-height: 300px;
+  max-width: 810px;
+  margin: 0 auto;
+  background: #3b4148;
+  z-index: 1;
+}
+.multi_step_form #msform .tittle {
+  text-align: center;
+  padding-bottom: 55px;
+}
+.multi_step_form #msform .tittle h2 {
+  font: 500 24px/35px "Roboto", sans-serif;
+  color: #fff;
+  padding-bottom: 5px;
+}
+.multi_step_form #msform .tittle p {
+  font: 400 16px/28px "Roboto", sans-serif;
+  color: #fff;
+}
+.multi_step_form #msform #progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.multi_step_form #msform #progressbar li {
+  list-style-type: none;
+  color: #99a2a8;
+  font-size: 9px;
+  width: calc(100%/3);
+  float: left;
+  position: relative;
+  font: 500 13px/1 "Roboto", sans-serif;
+}
+.multi_step_form #msform #progressbar li:nth-child(2):before {
+  /* content: ""; */
+  content: "\F132";
+}
+.multi_step_form #msform #progressbar li:nth-child(3):before {
+  /* content: ""; */
+  content: "\F120";
+}
+.multi_step_form #msform #progressbar li:before {
+  content: "";
+  font: normal normal normal 30px/50px Ionicons;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  background: #eaf0f4;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+}
+.multi_step_form #msform #progressbar li:after {
+  content: "";
+  width: 100%;
+  height: 10px;
+  background: #eaf0f4;
+  position: absolute;
+  left: -50%;
+  top: 21px;
+  z-index: -1;
+}
+.multi_step_form #msform #progressbar li:last-child:after {
+  width: 150%;
+}
+.multi_step_form #msform #progressbar li.active {
+  color: #5cb85c;
+}
+.multi_step_form #msform #progressbar li.active:before, .multi_step_form #msform #progressbar li.active:after {
+  background: #5cb85c;
+  color: white;
+}
+    </style>
+</head>
+<body>
+    <section class="multi_step_form">  
+        <form id="msform"> 
+          <div class="tittle">
+            <h2>Verification Process</h2>
+            <p>In order to use this service, you have to click the verification link send to your email account. </p>
+          </div>
+          <ul id="progressbar">
+            <li class="active">Create Account</li>  
+            <li>Verify Email</li> 
+            <li>Login</li>
+          </ul> 
+        </form>  
+      </section> 
+</body>
+</html>
