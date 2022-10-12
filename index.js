@@ -301,7 +301,7 @@ app.get("/authverify",function(req,res){
                     }
                     else {
                         console.log("5");
-                        res.redirect("/authverify");
+                        res.redirect("/authsuccess");
                     }
                 });
             }
@@ -312,6 +312,10 @@ app.get("/authverify",function(req,res){
         res.send("Authentication Failed");
     }
 });
+
+app.get("/authsuccess",(req,res)=>{
+    res.render("authsuccess");
+})
 
 app.get("/logout",(req,res)=>{
     req.session.destroy();
