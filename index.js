@@ -301,7 +301,7 @@ app.get("/authverify",function(req,res){
                     }
                     else {
                         console.log("5");
-                        res.send("Successfully Verified");
+                        res.redirect("/authverify");
                     }
                 });
             }
