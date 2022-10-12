@@ -290,22 +290,21 @@ app.get("/authverify",function(req,res){
             if (err){
                 console.log(err);
             }
-            else{
-                User.updateOne({'username': uname},{ $set: { verify: true } },,
-    (err, doc) => {
-      if (!err) {
-        res.status(200).send({ errorStatus: false, returnData: doc }
-      } else {
-        console.log(err);
-        res.status(200).send({ errorStatus: true, errorMsg: 'Db Error',   errorCode: 405 })
-      }
-    });
-                res.redirect("/authsuccess");
+              else{
+                User.updateOne({'username': uname},{ $set: { verify: true } },
+                (err, doc) => {
+                if (!err) {
+                    res.redirect("/authsuccess");
+                }
+                else {
+                    console.log(err);
+                    res.status(200).send("Failed to Verify the Account");
+                }
+                });
             }
         });
     }
     else {
-        console.log("6");
         res.send("Authentication Failed");
     }
 });
