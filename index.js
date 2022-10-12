@@ -286,21 +286,16 @@ app.get("/authverify",function(req,res){
     var uname = req.query.uname;
     var authVal = req.query.auth;
     if(uname) {
-        console.log("1");
         User.find({'username': uname, '_id': authVal}, function (err, docs) {
             if (err){
-                console.log("2");
                 console.log(err);
             }
             else{
-                console.log("3");
                 User.updateOne({'username': uname},{ $set: { verify: true } }, function(err, res){
                     if(err) {
-                        console.log("4");
-                        res.send(err);
+                        console.log(err);
                     }
                     else {
-                        console.log("5");
                         res.redirect("/authsuccess");
                     }
                 });
