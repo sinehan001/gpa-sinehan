@@ -13,7 +13,6 @@ var values = [];
 var vX = [];
 var vY = [];
 var nodemailer = require('nodemailer');
-require('dotenv').config({ override: true, debug: true })
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
